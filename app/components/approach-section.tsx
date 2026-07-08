@@ -4,22 +4,22 @@ const STEPS = [
   {
     title: "Signal detection",
     description:
-      "HTF bias and supply/demand zones, forming FU-candle triggers, Supertrend direction, RSI crossovers, and real-time pump.fun graduation detection — each strategy watches for the specific setup it was built for.",
+      "Higher-timeframe context, supply-demand zones, trigger formation, trend filters, RSI crossovers, and event feeds are evaluated against the rules defined for each system.",
   },
   {
     title: "Multi-layer confirmation",
     description:
-      "No single indicator trades alone. Stochastic RSI momentum, Fair Value Gaps, and Volume Profile confluence filter forex entries; a 9-point guardrail engine — mint authority, LP burn, holder concentration, honeypot checks — filters meme coin entries.",
+      "No single indicator trades alone. Stochastic RSI momentum, Fair Value Gaps, Volume Profile confluence, and instrument-quality checks filter entries before execution.",
   },
   {
     title: "Risk-managed execution",
     description:
-      "Percentage-based targets, balance-based position sizing, adaptive trailing stops, and hard circuit breakers. New systems default to paper trading until they've proven themselves.",
+      "Percentage-based targets, balance-based position sizing, adaptive trailing stops, and hard circuit breakers define the operating envelope for every system.",
   },
   {
     title: "Alerts & monitoring",
     description:
-      "WhatsApp, SMS, and email notifications on every trigger, plus live status endpoints — so a strategy's behavior is never a black box.",
+      "WhatsApp, SMS, and email notifications report trigger events, while status endpoints make strategy behavior observable during operation.",
   },
 ];
 
@@ -29,13 +29,13 @@ export function ApproachSection() {
       <div className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
           eyebrow="Approach"
-          title="How a strategy goes from idea to live trade"
-          subtitle="Every system in the repo follows the same four-stage pipeline, whether it's reading a 4-hour forex chart or a pump.fun graduation feed."
+          title="How research becomes executable infrastructure"
+          subtitle="Every system follows the same four-stage pipeline, from market hypothesis to monitored operation."
         />
         <ol className="mt-14 grid gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-14">
           {STEPS.map((step, i) => (
             <li key={step.title} className="flex gap-5">
-              <span className="font-mono text-sm text-ink-subtle">
+              <span className="text-sm text-leading-none text-ink-subtle mt-[3.5px]">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>

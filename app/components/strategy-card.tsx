@@ -5,13 +5,13 @@ import { TechTag } from "@/app/components/tech-tag";
 
 export function StrategyCard({ strategy }: { strategy: Strategy }) {
   return (
-    <div className="flex flex-col rounded-xl border border-border bg-surface p-7">
+    <div className="flex flex-col rounded-sm bg-surface p-7">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-xs uppercase tracking-wider text-ink-subtle">
+          <p className="text-xs text-leading-none uppercase text-ink-subtle">
             {strategy.categoryLabel}
           </p>
-          <h3 className="mt-1 font-mono text-lg font-semibold text-ink">
+          <h3 className="mt-1 text-lg font-medium text-ink">
             {strategy.name}
           </h3>
         </div>

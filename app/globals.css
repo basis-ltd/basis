@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f4ea;
-  --surface: #f0e8d6;
-  --surface-border: #e0d5bc;
-  --ink: #1a1712;
-  --ink-muted: #6b6252;
-  --ink-subtle: #9a8f78;
-  --warning: #9c4221;
-  --warning-surface: #f3e3d8;
-  --gain: #3f5d45;
+  --background: #f6f7f9;
+  --surface: #eceef1;
+  --surface-border: #c4cad1;
+  --ink: #161a1f;
+  --ink-muted: #555e68;
+  --ink-subtle: #838c94;
+  --primary: #3a5a82;
+  --warning: #8a4536;
+  --warning-surface: #f4efec;
+  --gain: #3d6b52;
 }
 
 @theme inline {
@@ -20,7 +21,8 @@
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-subtle: var(--ink-subtle);
-  --color-accent: var(--ink);
+  --color-accent: var(--primary);
+  --color-primary: var(--primary);
   --color-warning: var(--warning);
   --color-warning-surface: var(--warning-surface);
   --color-gain: var(--gain);
@@ -33,36 +35,8 @@ body {
   color: var(--color-foreground);
 }
 
-@keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-ticker {
-  animation: ticker-scroll 38s linear infinite;
-}
-
-@keyframes live-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
-}
-
-.animate-live-pulse {
-  animation: live-pulse 1.8s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-ticker,
-  .animate-live-pulse {
-    animation: none;
-  }
+::selection,
+*::selection {
+  background-color: var(--primary);
+  color: #ffffff;
 }

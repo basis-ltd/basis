@@ -1,4 +1,4 @@
-import { Bitcoin, Landmark, Rocket } from "lucide-react";
+import { ChartNoAxesCombined, Landmark, Workflow } from "lucide-react";
 import { SiteHeader } from "@/app/components/site-header";
 import { Hero } from "@/app/components/hero";
 import { CategoryCard } from "@/app/components/category-card";
@@ -11,8 +11,8 @@ import { categories, strategies } from "@/app/data/strategies";
 
 const CATEGORY_ICONS = {
   forex: Landmark,
-  crypto: Bitcoin,
-  meme: Rocket,
+  crypto: ChartNoAxesCombined,
+  meme: Workflow,
 } as const;
 
 export default function Home() {
@@ -25,8 +25,8 @@ export default function Home() {
         <section id="categories" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              eyebrow="What we build"
-              title="Three markets, one engineering approach"
+              eyebrow="Research scope"
+              title="Execution systems across three market structures"
             />
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {categories.map((category) => (
@@ -46,8 +46,8 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
               eyebrow="Strategies"
-              title="Five systems, all open-source"
-              subtitle="Every strategy below is real, running code in the trading-algos repo — not a pitch deck."
+              title="Five systems with inspectable logic"
+              subtitle="Each strategy is implemented as running code with explicit signal rules, execution behavior, and risk controls."
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {strategies.map((strategy) => (
@@ -55,8 +55,7 @@ export default function Home() {
               ))}
             </div>
             <p className="mt-8 text-sm text-ink-subtle">
-              Plus a Telegram signal-relay layer that polls public channels
-              and fans out SMS alerts — infrastructure, not a strategy.
+              Plus a Telegram signal-relay layer for SMS alerts (infrastructure, not a strategy).
             </p>
           </div>
         </section>

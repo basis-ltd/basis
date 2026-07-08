@@ -10,15 +10,15 @@ export function SectionHeading({
   return (
     <div className="max-w-2xl">
       {eyebrow ? (
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-ink-subtle">
+        <p className="mb-3 text-xs uppercase tracking-[0.2em] text-ink-subtle">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+      <h2 className="text-2xl font-medium leading-tight tracking-tight text-ink md:text-3xl">
         {title}
       </h2>
       {subtitle ? (
-        <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+        <p className="mt-4 text-sm leading-normal text-ink-muted sm:text-base">
           {subtitle}
         </p>
       ) : null}

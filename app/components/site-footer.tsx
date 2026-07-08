@@ -9,11 +9,11 @@ export function SiteFooter() {
           <div>
             <p className="font-mono text-lg font-semibold text-ink">Basis</p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-muted">
-              Automated trading systems for forex, crypto, and meme coins —
-              built in the open.
+              Systematic trading algorithms for research-driven execution and
+              observable market infrastructure.
             </p>
           </div>
-          <div className="flex flex-col gap-3 font-mono text-sm">
+          <div className="flex flex-col gap-3 text-sm">
             <a
               href="mailto:info@basis.rw"
               className="inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"

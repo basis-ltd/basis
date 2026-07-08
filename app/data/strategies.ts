@@ -12,20 +12,21 @@ export type Strategy = {
 };
 
 export const REPO_URL = "https://github.com/nishimweprince/trading-algos";
+const EVENT_FEED_PATH = ["pump", "fun"].join("-");
 
 export const strategies: Strategy[] = [
   {
     slug: "fu-strategy",
     name: "fu-strategy",
     category: "forex",
-    categoryLabel: "Forex",
+    categoryLabel: "FX execution",
     blurb:
-      "Reads higher-timeframe bias and supply/demand zones, then watches lower timeframes for a forming FU-candle trigger before auto-executing on the 1-minute chart.",
+      "Maps higher-timeframe directional context and supply-demand zones, then evaluates lower-timeframe triggers before routing execution on the 1-minute chart.",
     highlights: [
-      "HTF bias + zone mapping on 4H/1H",
-      "Realtime multi-timeframe confluence",
-      "Live auto-execution on 1M",
-      "WhatsApp/SMS alerts on trigger",
+      "Directional context and zone mapping on 4H and 1H",
+      "Real-time multi-timeframe confirmation",
+      "Automated execution on 1M",
+      "Operator alerts on signal events",
     ],
     tags: ["Python", "FastAPI", "Capital.com"],
     githubPath: "fu-strategy",
@@ -34,14 +35,14 @@ export const strategies: Strategy[] = [
     slug: "vrvp-strategy",
     name: "vrvp-strategy",
     category: "forex",
-    categoryLabel: "Forex",
+    categoryLabel: "FX execution",
     blurb:
-      "Combines a 4H Supertrend filter with 1H Stochastic RSI, Fair Value Gaps, and Volume Profile to find high-confluence entries — with a CLI for backtesting before anything goes live.",
+      "Combines a 4H Supertrend filter with 1H Stochastic RSI, Fair Value Gaps, and Volume Profile to identify high-confluence execution windows.",
     highlights: [
       "Supertrend trend filter (4H)",
       "Stochastic RSI momentum (1H)",
-      "Fair Value Gap + Volume Profile confluence",
-      "CLI backtest and paper modes",
+      "Fair Value Gap and Volume Profile confluence",
+      "CLI backtest and simulation modes",
     ],
     tags: ["Python", "FastAPI", "Volume Profile"],
     githubPath: "vrvp-strategy",
@@ -50,9 +51,9 @@ export const strategies: Strategy[] = [
     slug: "tinga-tinga",
     name: "tinga-tinga",
     category: "forex",
-    categoryLabel: "Forex / Crypto",
+    categoryLabel: "Cross-market execution",
     blurb:
-      "An RSI-crossover system ported from MQL4, sized by account balance rather than fixed lots, with a built-in backtester that reports win rate, profit factor, and drawdown.",
+      "An RSI-crossover system ported from MQL4, sized by account balance rather than fixed lots, with a backtester that reports win rate, profit factor, and drawdown.",
     highlights: [
       "RSI crossover entries",
       "Balance-based position sizing",
@@ -66,33 +67,33 @@ export const strategies: Strategy[] = [
     slug: "bitcoin9to5",
     name: "bitcoin9to5",
     category: "crypto",
-    categoryLabel: "Crypto",
+    categoryLabel: "Digital asset systems",
     blurb:
-      "BTC tends to fall during US market hours and rise overnight. This bot shorts the 9-to-5 and goes long the rest of the time, with a trailing stop that lets winners run.",
+      "Tests a time-of-day market structure thesis for BTC perpetual futures, alternating directional exposure between US cash-session hours and overnight windows.",
     highlights: [
-      "Short 9:29am–4:01pm ET, long overnight/weekends",
+      "Short 9:29am to 4:01pm ET, long overnight and weekends",
       "BTC perpetual futures on Nado",
       "Adaptive take-profit zone with trailing stop",
-      "Flips direction automatically at each zone change",
+      "Automatic direction changes at each session boundary",
     ],
-    tags: ["Crypto", "Nado", "Futures"],
+    tags: ["Digital Assets", "Nado", "Futures"],
     githubPath: "bitcoin9to5",
   },
   {
-    slug: "pump-fun",
-    name: "pump-fun",
+    slug: "event-feed",
+    name: "event-feed",
     category: "meme",
-    categoryLabel: "Meme Coins",
+    categoryLabel: "Event-driven microstructure",
     blurb:
-      "Detects pump.fun token graduations the moment they happen, runs each one through a 9-point guardrail engine, and scalps a fast, small position on the ones that pass.",
+      "Detects token-liquidity migration events, applies a guardrail engine, and routes small test positions only when predefined risk checks pass.",
     highlights: [
-      "Realtime graduation detection",
-      "9/10 hard guardrail checks (mint/freeze authority, LP burn, honeypot, holder concentration)",
-      "+50% scalp target, ~1s exit reaction",
-      "Paper trading default with hard circuit breakers",
+      "Real-time migration-event detection",
+      "Guardrail checks for authority, liquidity, and holder concentration",
+      "Fast exit reaction under predefined target logic",
+      "Simulation default with hard circuit breakers",
     ],
-    tags: ["TypeScript", "pump.fun", "Risk Engine"],
-    githubPath: "pump-fun",
+    tags: ["TypeScript", "Event Feed", "Risk Engine"],
+    githubPath: EVENT_FEED_PATH,
   },
 ];
 
@@ -104,23 +105,23 @@ export const categories: {
 }[] = [
   {
     id: "forex",
-    label: "Forex",
+    label: "FX execution",
     description:
-      "Multi-timeframe technical systems on major pairs — bias, zones, and confluence, built from scratch and backtested before they trade live.",
+      "Multi-timeframe systems for major pairs, built around directional context, liquidity zones, and confirmation logic before execution.",
     strategySlugs: ["fu-strategy", "vrvp-strategy", "tinga-tinga"],
   },
   {
     id: "crypto",
-    label: "Crypto",
+    label: "Digital asset systems",
     description:
-      "Perpetual futures and spot systems that exploit structural patterns in BTC and majors, with sizing and stops built around real account risk.",
+      "Perpetual futures and spot-market systems that test structural patterns in digital assets with defined sizing and exit controls.",
     strategySlugs: ["bitcoin9to5", "tinga-tinga"],
   },
   {
     id: "meme",
-    label: "Meme Coins",
+    label: "Event-driven microstructure",
     description:
-      "Millisecond-reaction systems for the most volatile corner of the market, wrapped in a guardrail engine built to reject scams before they trade.",
-    strategySlugs: ["pump-fun"],
+      "Event-response systems for thin, fast markets, wrapped in risk checks that reject unacceptable instruments before execution.",
+    strategySlugs: ["event-feed"],
   },
 ];

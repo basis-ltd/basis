@@ -1,83 +1,77 @@
 import { ArrowUpRight } from "lucide-react";
 import { REPO_URL } from "@/app/data/strategies";
 
-const CANDLES = [
-  { h: 22, up: true },
-  { h: 38, up: false },
-  { h: 16, up: true },
-  { h: 44, up: true },
-  { h: 28, up: false },
-  { h: 52, up: true },
-  { h: 20, up: false },
-  { h: 34, up: true },
-  { h: 46, up: false },
-  { h: 18, up: true },
-  { h: 40, up: true },
-  { h: 26, up: false },
-  { h: 48, up: true },
-  { h: 30, up: false },
-  { h: 24, up: true },
+const LEDGER_ROWS = [
+  { label: "Signal logic", value: "Explicit rules" },
+  { label: "Execution", value: "Automated routing" },
+  { label: "Risk", value: "Circuit controls" },
+  { label: "Observability", value: "Status endpoints" },
 ];
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-border scroll-mt-24"
+      className="relative flex h-[calc(100svh-4rem)] box-border items-center overflow-hidden border-b border-border scroll-mt-24"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 flex h-40 items-end justify-center gap-3 opacity-[0.07] md:h-56"
-      >
-        {CANDLES.map((c, i) => (
-          <span
-            key={i}
-            className={`w-2 rounded-sm md:w-3 ${
-              c.up ? "bg-gain" : "bg-warning"
-            }`}
-            style={{ height: `${c.h * 3}px` }}
-          />
-        ))}
-      </div>
-
-      <div className="relative mx-auto max-w-4xl px-6 py-28 text-center md:py-36">
-        <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-ink-subtle">
-          Basis — Algorithmic Trading
-        </p>
-        <h1 className="text-5xl font-semibold tracking-tight text-ink md:text-7xl">
-          Automated trading systems for forex, crypto, and meme coins.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
-          Five strategies, one repo, all open-source: multi-timeframe
-          technical analysis, real-time execution, and risk management built
-          in from the start — not bolted on after a bad trade.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-10 md:grid-cols-[1fr_360px] md:items-center md:gap-12 md:py-16">
+        <div>
+          <p className="mb-6 text-xs text-leading-none uppercase text-ink-subtle">
+            Basis Algorithmic Research
+          </p>
+          <h1 className="max-w-4xl text-3xl font-medium leading-tight tracking-tight text-ink sm:text-4xl md:text-6xl">
+            Trading algorithms for systematic market execution.
+          </h1>
+          <p className="mt-5 max-w-2xl text-sm leading-normal text-ink-muted sm:text-base md:mt-6">
+            Research-driven execution systems across foreign exchange,
+            digital assets, and event-driven market structure.
+          </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#strategies"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-6 py-3 text-sm font-normal text-background transition-colors hover:bg-primary"
+            >
+              Review systems
+            </a>
+            <a
+              href={REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 rounded-sm border border-border px-6 py-3 text-sm font-normal text-ink transition-colors hover:border-ink"
+            >
+              Source repository
+              <ArrowUpRight className="size-3.5" />
+            </a>
+          </div>
           <a
-            href={REPO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-background transition-colors hover:bg-ink/90"
+            href="#approach"
+            className="mt-14 inline-block text-xs uppercase tracking-[0.2em] text-ink-subtle transition-colors hover:text-ink-muted"
           >
-            Explore the Code
-            <ArrowUpRight className="size-4" />
-          </a>
-          <a
-            href="https://pumpdesk.nishimweprince.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-ink underline decoration-border underline-offset-4 transition-colors hover:decoration-ink"
-          >
-            Check live performance
-            <ArrowUpRight className="size-3.5" />
+            Approach
           </a>
         </div>
-        <a
-          href="#approach"
-          className="mt-14 inline-block font-mono text-xs text-ink-subtle transition-colors hover:text-ink-muted"
-        >
-          See how it works ↓
-        </a>
+
+        <div className="hidden border-y border-border py-3 md:block">
+          <div className="flex items-center justify-between border-b border-border pb-3 text-[11px] uppercase tracking-[0.18em] text-ink-subtle">
+            <span>System ledger</span>
+            <span>Basis</span>
+          </div>
+          <dl>
+            {LEDGER_ROWS.map((row) => (
+              <div
+                key={row.label}
+                className="grid grid-cols-[1fr_auto] gap-6 border-b border-border py-4 last:border-b-0"
+              >
+                <dt className="font-mono text-xs uppercase text-ink-subtle">
+                  {row.label}
+                </dt>
+                <dd className="text-right text-sm font-normal text-ink">
+                  {row.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
   );

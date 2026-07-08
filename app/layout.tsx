@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Basis — Automated Trading Algorithms for Forex, Crypto & Meme Coins",
+  title: "Basis | Systematic Trading Algorithms",
   description:
-    "Basis builds and open-sources automated trading systems across forex, crypto, and meme coins — multi-timeframe technical analysis, real-time execution, and risk-managed automation. Explore the code on GitHub.",
+    "Basis develops systematic trading algorithms with explicit signal logic, risk controls, and observable execution infrastructure.",
   openGraph: {
-    title: "Basis — Automated Trading Algorithms",
+    title: "Basis | Systematic Trading Algorithms",
     description:
-      "Forex, crypto, and meme-coin trading systems, engineered and open-sourced.",
+      "Research-driven execution systems with inspectable logic and risk controls.",
     siteName: "Basis",
     type: "website",
   },
