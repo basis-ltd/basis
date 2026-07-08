@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/basis-logo.png",
-    apple: "/basis-logo.png",
+    icon: "https://res.cloudinary.com/nishimweprince/image/upload/v1783477324/basis/basis-logo_lqxfu0.png",
+    apple: "https://res.cloudinary.com/nishimweprince/image/upload/v1783477324/basis/basis-logo_lqxfu0.png",
   },
 };
 

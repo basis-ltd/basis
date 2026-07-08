@@ -19,11 +19,11 @@ export function SiteHeader() {
           aria-label="Basis home"
         >
           <Image
-            src="/basis-logo.png"
+            src="https://res.cloudinary.com/nishimweprince/image/upload/v1783477324/basis/basis-logo_lqxfu0.png"
             alt="Basis"
             width={900}
             height={900}
-            className="h-8 w-8 scale-[1.8] object-contain"
+            className="h-8 w-8 scale-[2.2] object-contain"
             fetchPriority="high"
           />
         </a>
