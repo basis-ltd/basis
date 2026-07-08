@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { REPO_URL } from "@/app/data/strategies";
 
 const NAV_LINKS = [
@@ -14,9 +15,17 @@ export function SiteHeader() {
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6">
         <a
           href="#top"
-          className="font-mono text-lg font-semibold tracking-tight text-ink"
+          className="flex h-10 w-14 items-center overflow-hidden"
+          aria-label="Basis home"
         >
-          Basis
+          <Image
+            src="/basis-logo.png"
+            alt="Basis"
+            width={1254}
+            height={1254}
+            className="h-14 w-14 scale-[1.8] object-contain"
+            fetchPriority="high"
+          />
         </a>
         <nav className="hidden items-center gap-8 sm:flex">
           {NAV_LINKS.map((link) => (

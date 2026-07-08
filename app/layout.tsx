@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     siteName: "Basis",
     type: "website",
   },
+  icons: {
+    icon: "/basis-logo.png",
+    apple: "/basis-logo.png",
+  },
 };
 
 export default function RootLayout({
