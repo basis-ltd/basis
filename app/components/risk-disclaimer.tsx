@@ -4,8 +4,8 @@ export function RiskDisclaimer() {
   return (
     <section id="risk" className="scroll-mt-16">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
-        <div className="border-l-2 border-warning bg-warning-surface p-6 sm:p-8">
-          <div className="grid gap-5 sm:grid-cols-[1.25rem_10rem_minmax(0,1fr)] sm:gap-6">
+        <div className="bg-warning-surface p-6 sm:p-8">
+          <div className="grid gap-5 sm:grid-cols-[1.25rem_10rem_minmax(0,1fr)] sm:gap-4">
             <TriangleAlert
               className="mt-0.5 size-4 text-warning"
               strokeWidth={1.4}
@@ -14,7 +14,7 @@ export function RiskDisclaimer() {
               Risk disclaimer
             </h2>
             <div>
-              <p className="max-w-2xl text-[0.76rem] font-light leading-relaxed text-ink-muted">
+              <p className="max-w-2xl text-[0.76rem] font-light leading-relaxed text-ink-muted ml-2">
                 Nothing on this page or in this code is financial advice.
                 Automated trading carries a substantial risk of loss. Systems
                 that performed well historically can still lose money in future

@@ -2,24 +2,24 @@ import { SectionHeading } from "@/app/components/section-heading";
 
 const STEPS = [
   {
-    title: "Signal detection",
+    title: "Research inputs",
     description:
-      "Higher-timeframe context, supply-demand zones, trigger formation, trend filters, RSI crossovers, and event feeds are evaluated against the rules defined for each system.",
+      "Candles, event feeds, research pages, and operator-labelled examples are normalized into inputs that can be replayed, inspected, and tested.",
   },
   {
-    title: "Multi-layer confirmation",
+    title: "Explicit validation",
     description:
-      "No single indicator trades alone. Stochastic RSI momentum, Fair Value Gaps, Volume Profile confluence, and instrument-quality checks filter entries before execution.",
+      "Strategy rules, token guardrails, profile schemas, session gates, and instrument constraints reject incomplete or unsafe instructions before routing.",
   },
   {
-    title: "Risk-managed execution",
+    title: "Controlled routing",
     description:
-      "Percentage-based targets, balance-based position sizing, adaptive trailing stops, and hard circuit breakers define the operating envelope for every system.",
+      "Deterministic identifiers, dry-run modes, idempotency checks, terminal locks, and circuit breakers bound how accepted instructions can affect downstream systems.",
   },
   {
-    title: "Alerts & monitoring",
+    title: "Observable operation",
     description:
-      "WhatsApp, SMS, and email notifications report trigger events, while status endpoints make strategy behavior observable during operation.",
+      "Status endpoints, durable state, delivery histories, structured logs, and operator notifications make system behavior visible during and after operation.",
   },
 ];
 
@@ -29,8 +29,8 @@ export function ApproachSection() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
         <SectionHeading
           eyebrow="Operating model"
-          title="How research becomes executable infrastructure"
-          subtitle="Every system follows the same four-stage pipeline, from market hypothesis to monitored operation."
+          title="How evidence becomes controlled system behavior"
+          subtitle="The platform uses a shared discipline across research, strategy, execution, and infrastructure, even when individual services have different responsibilities."
         />
         <ol className="mt-12 border-t border-ink">
           {STEPS.map((step, i) => (

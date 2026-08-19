@@ -9,13 +9,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Basis | Systematic Trading Algorithms",
+  title: "Basis | Trading Systems Research Platform",
   description:
-    "Basis develops systematic trading algorithms with explicit signal logic, risk controls, and observable execution infrastructure.",
+    "Basis documents 17 research tools, strategy services, execution systems, and shared infrastructure with explicit controls and inspectable operating behavior.",
   openGraph: {
-    title: "Basis | Systematic Trading Algorithms",
+    title: "Basis | Trading Systems Research Platform",
     description:
-      "Research-driven execution systems with inspectable logic and risk controls.",
+      "Research, strategy, execution, and infrastructure systems with inspectable logic and operating controls.",
     siteName: "Basis",
     type: "website",
   },

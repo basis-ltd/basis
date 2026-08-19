@@ -8,7 +8,6 @@
   --ink: #0a0b0d;
   --ink-muted: #62666c;
   --ink-subtle: #92969c;
-  --primary: #1d9bf0;
   --warning: #9a4938;
   --warning-surface: #f6f0ee;
   --gain: #18865e;
@@ -23,8 +22,6 @@
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-subtle: var(--ink-subtle);
-  --color-accent: var(--primary);
-  --color-primary: var(--primary);
   --color-warning: var(--warning);
   --color-warning-surface: var(--warning-surface);
   --color-gain: var(--gain);
@@ -37,7 +34,7 @@
 
 html {
   min-width: 20rem;
-  scroll-padding-top: 4rem;
+  scroll-padding-top: 3rem;
 }
 
 body {
@@ -57,8 +54,32 @@ summary {
 }
 
 :focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--ink);
   outline-offset: 4px;
+}
+
+.text-link {
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.12em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.text-link:hover::after,
+.text-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .skip-link {
@@ -80,8 +101,8 @@ summary {
 
 ::selection,
 *::selection {
-  background-color: var(--primary);
-  color: #ffffff;
+  background-color: var(--ink);
+  color: var(--background);
 }
 
 @keyframes signal-trace {

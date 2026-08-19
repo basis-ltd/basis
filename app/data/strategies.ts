@@ -1,4 +1,4 @@
-export type Category = "forex" | "crypto" | "meme";
+export type Category = "research" | "strategies" | "execution" | "infrastructure";
 
 export type Strategy = {
   slug: string;
@@ -9,91 +9,191 @@ export type Strategy = {
   highlights: string[];
   tags: string[];
   githubPath: string;
+  docsPath: string;
+};
+
+export type CatalogSystem = {
+  name: string;
+  description: string;
+  lane: string;
+  docsPath: string;
 };
 
 export const REPO_URL = "https://github.com/nishimweprince/trading-algos";
-const EVENT_FEED_PATH = ["pump", "fun"].join("-");
+export const DOCS_URL = "https://trading-algos.nishimweprince.dev";
 
 export const strategies: Strategy[] = [
   {
-    slug: "fu-strategy",
-    name: "fu-strategy",
-    category: "forex",
-    categoryLabel: "FX execution",
+    slug: "pump-fun",
+    name: "Pump.fun Scalper",
+    category: "strategies",
+    categoryLabel: "Event-driven strategy",
     blurb:
-      "Maps higher-timeframe directional context and supply-demand zones, then evaluates lower-timeframe triggers before routing execution on the 1-minute chart.",
+      "Detects pump.fun graduations, rejects unsafe candidates through a ten-check guardrail engine, and manages small positions with fast exits.",
     highlights: [
-      "Directional context and zone mapping on 4H and 1H",
-      "Real-time multi-timeframe confirmation",
-      "Automated execution on 1M",
-      "Operator alerts on signal events",
+      "Graduation detection across multiple event feeds",
+      "Ten mandatory token and liquidity guardrails",
+      "Paper-first operation with circuit breakers",
+      "Durable position state and pre-signed exit ladders",
     ],
-    tags: ["Python", "FastAPI", "Capital.com"],
-    githubPath: "fu-strategy",
+    tags: ["TypeScript", "Solana", "Risk Engine"],
+    githubPath: "pump-fun",
+    docsPath: "/pump-fun",
   },
   {
-    slug: "vrvp-strategy",
-    name: "vrvp-strategy",
-    category: "forex",
-    categoryLabel: "FX execution",
+    slug: "lookup-trader",
+    name: "Lookup Trader",
+    category: "research",
+    categoryLabel: "Pattern research",
     blurb:
-      "Combines a 4H Supertrend filter with 1H Stochastic RSI, Fair Value Gaps, and Volume Profile to identify high-confluence execution windows.",
+      "A local bar-replay and manual labelling environment for building a pattern-based probability and outcome database from historical price data.",
     highlights: [
-      "Supertrend trend filter (4H)",
-      "Stochastic RSI momentum (1H)",
-      "Fair Value Gap and Volume Profile confluence",
-      "CLI backtest and simulation modes",
+      "HistData ingestion into partitioned Parquet",
+      "Bar-by-bar replay and manual setup labelling",
+      "Triple-barrier outcomes and feature storage",
+      "Research-only artifacts with execution disabled",
     ],
-    tags: ["Python", "FastAPI", "Volume Profile"],
-    githubPath: "vrvp-strategy",
+    tags: ["Python", "DuckDB", "React"],
+    githubPath: "lookup-trader",
+    docsPath: "/lookup-trader",
   },
   {
-    slug: "tinga-tinga",
-    name: "tinga-tinga",
-    category: "forex",
-    categoryLabel: "Cross-market execution",
+    slug: "lux-algo",
+    name: "LuxAlgo",
+    category: "strategies",
+    categoryLabel: "Signal service",
     blurb:
-      "An RSI-crossover system ported from MQL4, sized by account balance rather than fixed lots, with a backtester that reports win rate, profit factor, and drawdown.",
+      "Polls candles, calculates Supertrend direction, layers confluence rules, and submits validated trading instructions to MT5 Trader.",
     highlights: [
-      "RSI crossover entries",
-      "Balance-based position sizing",
-      "Binance API market data",
-      "Backtests: win rate, profit factor, Sharpe, drawdown",
+      "Warmup-aware candle polling and alignment",
+      "Hard target and confluence profiles",
+      "Deterministic signals for downstream execution",
+      "Configuration and acceptance tests documented",
     ],
-    tags: ["JavaScript", "Binance API", "Backtesting"],
-    githubPath: "tinga-tinga",
+    tags: ["Python", "Supertrend", "MT5"],
+    githubPath: "lux-algo",
+    docsPath: "/lux-algo",
   },
   {
-    slug: "bitcoin9to5",
-    name: "bitcoin9to5",
-    category: "crypto",
-    categoryLabel: "Digital asset systems",
+    slug: "ipda",
+    name: "IPDA",
+    category: "strategies",
+    categoryLabel: "Signal service",
     blurb:
-      "Tests a time-of-day market structure thesis for BTC perpetual futures, alternating directional exposure between US cash-session hours and overnight windows.",
+      "An RSI Buy Chance / Sell Chance service with session gates, hard target profiles, operator alerts, and idempotent routing to MT5 Trader.",
     highlights: [
-      "Short 9:29am to 4:01pm ET, long overnight and weekends",
-      "BTC perpetual futures on Nado",
-      "Adaptive take-profit zone with trailing stop",
-      "Automatic direction changes at each session boundary",
+      "RSI reversal logic ported from Pine Script",
+      "Tokyo and New York session controls",
+      "Deterministic signal identifiers prevent duplicate fills",
+      "Break-even advisory and operator runbook",
     ],
-    tags: ["Digital Assets", "Nado", "Futures"],
-    githubPath: "bitcoin9to5",
+    tags: ["Python", "FastAPI", "Pine Script"],
+    githubPath: "ipda",
+    docsPath: "/ipda",
   },
   {
-    slug: "event-feed",
-    name: "event-feed",
-    category: "meme",
-    categoryLabel: "Event-driven microstructure",
+    slug: "signals-scrapper",
+    name: "Signals Scrapper",
+    category: "research",
+    categoryLabel: "Vision extraction",
     blurb:
-      "Detects token-liquidity migration events, applies a guardrail engine, and routes small test positions only when predefined risk checks pass.",
+      "A scheduled NestJS service that captures IC Markets research pages, extracts structured signals with vision models, and can forward them to MT5 Trader.",
     highlights: [
-      "Real-time migration-event detection",
-      "Guardrail checks for authority, liquidity, and holder concentration",
-      "Fast exit reaction under predefined target logic",
-      "Simulation default with hard circuit breakers",
+      "Scheduled research-page capture",
+      "OpenAI vision extraction into structured signals",
+      "Optional routing into the shared execution service",
+      "Explicit configuration and architecture documentation",
     ],
-    tags: ["TypeScript", "Event Feed", "Risk Engine"],
-    githubPath: EVENT_FEED_PATH,
+    tags: ["NestJS", "OpenAI Vision", "Automation"],
+    githubPath: "signals-scrapper",
+    docsPath: "/signals-scrapper",
+  },
+];
+
+export const catalogSystems: CatalogSystem[] = [
+  {
+    name: "MT5 Trader",
+    lane: "Execution",
+    description:
+      "Authenticated FastAPI service that validates and idempotently executes signals through a local MetaTrader 5 terminal.",
+    docsPath: "/mt5-trader",
+  },
+  {
+    name: "FU Strategy",
+    lane: "Strategy",
+    description:
+      "Capital.com multi-timeframe system with higher-timeframe bias, zones, operator alerts, and optional 1-minute execution.",
+    docsPath: "/fu-strategy",
+  },
+  {
+    name: "Bitcoin 9to5",
+    lane: "Strategy",
+    description:
+      "BTC perpetual system that shorts US cash hours and holds long exposure overnight with adaptive zone timing.",
+    docsPath: "/bitcoin9to5",
+  },
+  {
+    name: "cTrader Markets",
+    lane: "Market data",
+    description:
+      "Profile-scoped FastAPI wrapper for cTrader Open API ticks, OHLC, and symbols over HTTP and SSE.",
+    docsPath: "/ctrader-markets",
+  },
+  {
+    name: "Telegram Bot",
+    lane: "Data intake",
+    description:
+      "GramJS poller that detects Gold and XAU buy/sell phrases and fans operator alerts out through SMS.",
+    docsPath: "/telegram-bot",
+  },
+  {
+    name: "Telegram → MT5",
+    lane: "Execution",
+    description:
+      "Windows Telethon copier that reads one Telegram chat and places fixed-lot MT5 market orders, dry-run by default.",
+    docsPath: "/telegram-metatrader",
+  },
+  {
+    name: "Forex Execution",
+    lane: "Execution",
+    description:
+      "TypeScript and Fastify service for authenticated OANDA account, instrument, and execution APIs.",
+    docsPath: "/forex-execution",
+  },
+  {
+    name: "Notification Service",
+    lane: "Infrastructure",
+    description:
+      "NestJS multi-channel API for Telegram, email, SMS, and WhatsApp with SQLite delivery history.",
+    docsPath: "/notification-service",
+  },
+  {
+    name: "VRVP Strategy",
+    lane: "Strategy",
+    description:
+      "Multi-timeframe forex system combining Supertrend, StochRSI, Fair Value Gaps, and Volume Profile.",
+    docsPath: "/vrvp-strategy",
+  },
+  {
+    name: "Jesse Strategies",
+    lane: "Strategy research",
+    description:
+      "Auction Market Theory experiments in Jesse, covering trend continuation and mean-reversion systems.",
+    docsPath: "/jesse-strategies",
+  },
+  {
+    name: "Tinga Tinga",
+    lane: "Strategy",
+    description:
+      "RSI crossover system with Binance market data, balance-based sizing, risk management, and backtesting.",
+    docsPath: "/tinga-tinga",
+  },
+  {
+    name: "Binance Crypto",
+    lane: "Strategy library",
+    description:
+      "TypeScript and JavaScript cryptocurrency strategies with reusable indicator and exchange utilities.",
+    docsPath: "/binance-crypto",
   },
 ];
 
@@ -104,24 +204,31 @@ export const categories: {
   strategySlugs: string[];
 }[] = [
   {
-    id: "forex",
-    label: "FX execution",
+    id: "research",
+    label: "Research & data",
     description:
-      "Multi-timeframe systems for major pairs, built around directional context, liquidity zones, and confirmation logic before execution.",
-    strategySlugs: ["fu-strategy", "vrvp-strategy", "tinga-tinga"],
+      "Replay, labelling, vision extraction, and market-data tools that turn source material into inspectable evidence.",
+    strategySlugs: ["Lookup Trader", "Signals Scrapper", "cTrader Markets"],
   },
   {
-    id: "crypto",
-    label: "Digital asset systems",
+    id: "strategies",
+    label: "Strategy systems",
     description:
-      "Perpetual futures and spot-market systems that test structural patterns in digital assets with defined sizing and exit controls.",
-    strategySlugs: ["bitcoin9to5", "tinga-tinga"],
+      "Rule-based systems across foreign exchange and digital assets, each with explicit inputs, profiles, and failure boundaries.",
+    strategySlugs: ["Pump.fun", "LuxAlgo", "IPDA", "VRVP", "+5"],
   },
   {
-    id: "meme",
-    label: "Event-driven microstructure",
+    id: "execution",
+    label: "Execution services",
     description:
-      "Event-response systems for thin, fast markets, wrapped in risk checks that reject unacceptable instruments before execution.",
-    strategySlugs: ["event-feed"],
+      "Authenticated routing and terminal adapters designed around validation, idempotency, dry-run controls, and reconciliation.",
+    strategySlugs: ["MT5 Trader", "Forex Execution", "Telegram → MT5"],
+  },
+  {
+    id: "infrastructure",
+    label: "Shared infrastructure",
+    description:
+      "Notification, ingestion, and operator-facing services shared across otherwise independent research and execution systems.",
+    strategySlugs: ["Notification Service", "Telegram Bot"],
   },
 ];

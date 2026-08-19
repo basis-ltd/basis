@@ -1,6 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import type { Strategy } from "@/app/data/strategies";
-import { REPO_URL } from "@/app/data/strategies";
+import { DOCS_URL } from "@/app/data/strategies";
 import { TechTag } from "@/app/components/tech-tag";
 
 export function StrategyCard({
@@ -22,13 +22,13 @@ export function StrategyCard({
           </h3>
         </div>
         <a
-          href={`${REPO_URL}/tree/main/${strategy.githubPath}`}
+          href={`${DOCS_URL}${strategy.docsPath}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-1 text-[0.66rem] font-normal text-ink-muted transition-colors hover:text-primary"
+          className="text-link inline-flex shrink-0 items-center gap-1 !text-[12px] font-light text-ink-muted transition-colors hover:text-ink"
         >
-          Source
-          <ArrowUpRight className="size-3.5" />
+          Docs
+          <ArrowUpRight className="size-2.5" strokeWidth={1.5} />
         </a>
       </div>
 

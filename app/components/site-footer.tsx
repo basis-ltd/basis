@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { REPO_URL } from "@/app/data/strategies";
+import { DOCS_URL, REPO_URL } from "@/app/data/strategies";
 
 export function SiteFooter() {
   return (
@@ -8,17 +8,17 @@ export function SiteFooter() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-[0.92rem] font-normal tracking-[-0.025em] text-ink">
-              Basis<span className="text-primary">.</span>
+              Basis.
             </p>
             <p className="mt-3 max-w-sm text-[0.72rem] font-light leading-relaxed text-ink-muted">
-              Systematic trading algorithms for research-driven execution and
+              Research tools, trading strategies, execution services, and
               observable market infrastructure.
             </p>
           </div>
           <div className="flex flex-col gap-2.5 text-[0.7rem] font-light">
             <a
               href="mailto:info@basis.rw"
-              className="inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
+              className="text-link inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
             >
               info@basis.rw
             </a>
@@ -26,16 +26,16 @@ export function SiteFooter() {
               href={REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
+              className="text-link inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
             >
               GitHub
               <ArrowUpRight className="size-3.5" />
             </a>
             <a
-              href={`${REPO_URL}/tree/main/docs`}
+              href={DOCS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
+              className="text-link inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
             >
               Docs
               <ArrowUpRight className="size-3.5" />
