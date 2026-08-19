@@ -8,20 +8,22 @@ export function SectionHeading({
   subtitle?: string;
 }) {
   return (
-    <div className="max-w-2xl">
+    <div className="grid max-w-4xl gap-5 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-8">
       {eyebrow ? (
-        <p className="mb-3 text-xs uppercase tracking-[0.2em] text-ink-subtle">
+        <p className="pt-1 text-[0.62rem] font-light uppercase tracking-[0.12em] text-ink-subtle">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-2xl font-medium leading-tight tracking-tight text-ink md:text-3xl">
-        {title}
-      </h2>
-      {subtitle ? (
-        <p className="mt-4 text-sm leading-normal text-ink-muted sm:text-base">
-          {subtitle}
-        </p>
-      ) : null}
+      <div className={eyebrow ? "" : "sm:col-start-2"}>
+        <h2 className="max-w-[26ch] text-[1.7rem] font-light leading-[1.12] tracking-[-0.04em] text-ink md:text-[2rem]">
+          {title}
+        </h2>
+        {subtitle ? (
+          <p className="mt-4 max-w-xl text-[0.78rem] font-light leading-relaxed text-ink-muted sm:text-[0.82rem]">
+            {subtitle}
+          </p>
+        ) : null}
+      </div>
     </div>
   );
 }

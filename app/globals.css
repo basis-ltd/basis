@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f7f9;
-  --surface: #eceef1;
-  --surface-border: #c4cad1;
-  --ink: #161a1f;
-  --ink-muted: #555e68;
-  --ink-subtle: #838c94;
-  --primary: #3a5a82;
-  --warning: #8a4536;
-  --warning-surface: #f4efec;
-  --gain: #3d6b52;
+  --background: #ffffff;
+  --surface: #f2f3f5;
+  --surface-raised: #e9ebee;
+  --surface-border: #d9dde2;
+  --ink: #0a0b0d;
+  --ink-muted: #62666c;
+  --ink-subtle: #92969c;
+  --primary: #1d9bf0;
+  --warning: #9a4938;
+  --warning-surface: #f6f0ee;
+  --gain: #18865e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--ink);
   --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
   --color-border: var(--surface-border);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
@@ -26,17 +28,82 @@
   --color-warning: var(--warning);
   --color-warning-surface: var(--warning-surface);
   --color-gain: var(--gain);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 20rem;
+  scroll-padding-top: 4rem;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 350;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+summary {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.6rem 0.9rem;
+  background: var(--ink);
+  color: var(--background);
+  font-size: 0.75rem;
+  transform: translateY(-180%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 ::selection,
 *::selection {
   background-color: var(--primary);
   color: #ffffff;
+}
+
+@keyframes signal-trace {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

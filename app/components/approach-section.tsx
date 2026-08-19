@@ -25,27 +25,28 @@ const STEPS = [
 
 export function ApproachSection() {
   return (
-    <section id="approach" className="scroll-mt-24 border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+    <section id="approach" className="scroll-mt-16 border-b border-border">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
         <SectionHeading
-          eyebrow="Approach"
+          eyebrow="Operating model"
           title="How research becomes executable infrastructure"
           subtitle="Every system follows the same four-stage pipeline, from market hypothesis to monitored operation."
         />
-        <ol className="mt-14 grid gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-14">
+        <ol className="mt-12 border-t border-ink">
           {STEPS.map((step, i) => (
-            <li key={step.title} className="flex gap-5">
-              <span className="text-sm text-leading-none text-ink-subtle mt-[3.5px]">
+            <li
+              key={step.title}
+              className="grid gap-4 border-b border-border py-6 sm:grid-cols-[4rem_12rem_minmax(0,1fr)] sm:gap-7"
+            >
+              <span className="text-[0.6rem] font-light tracking-[0.08em] text-ink-subtle">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div>
-                <h3 className="text-lg font-semibold text-ink">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                  {step.description}
-                </p>
-              </div>
+              <h3 className="text-[0.88rem] font-normal tracking-[-0.015em] text-ink">
+                {step.title}
+              </h3>
+              <p className="max-w-2xl text-[0.76rem] font-light leading-relaxed text-ink-muted">
+                {step.description}
+              </p>
             </li>
           ))}
         </ol>

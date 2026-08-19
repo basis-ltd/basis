@@ -3,15 +3,21 @@ import type { Strategy } from "@/app/data/strategies";
 import { REPO_URL } from "@/app/data/strategies";
 import { TechTag } from "@/app/components/tech-tag";
 
-export function StrategyCard({ strategy }: { strategy: Strategy }) {
+export function StrategyCard({
+  strategy,
+  index,
+}: {
+  strategy: Strategy;
+  index: number;
+}) {
   return (
-    <div className="flex flex-col rounded-sm bg-surface p-7">
+    <article className="flex min-h-[27rem] flex-col border-b border-r border-border bg-background p-6 transition-colors hover:bg-[#fafafa] sm:p-8">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs text-leading-none uppercase text-ink-subtle">
-            {strategy.categoryLabel}
+          <p className="text-[0.58rem] font-light uppercase tracking-[0.09em] text-ink-subtle">
+            0{index + 1} · {strategy.categoryLabel}
           </p>
-          <h3 className="mt-1 text-lg font-medium text-ink">
+          <h3 className="mt-2 text-[1.35rem] font-normal tracking-[-0.035em] text-ink">
             {strategy.name}
           </h3>
         </div>
@@ -19,34 +25,34 @@ export function StrategyCard({ strategy }: { strategy: Strategy }) {
           href={`${REPO_URL}/tree/main/${strategy.githubPath}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-1 text-xs font-medium text-ink-muted transition-colors hover:text-ink"
+          className="inline-flex shrink-0 items-center gap-1 text-[0.66rem] font-normal text-ink-muted transition-colors hover:text-primary"
         >
           Source
           <ArrowUpRight className="size-3.5" />
         </a>
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+      <p className="mt-5 max-w-xl text-[0.79rem] font-light leading-relaxed text-ink-muted">
         {strategy.blurb}
       </p>
 
-      <ul className="mt-5 space-y-2">
+      <ul className="mt-6 space-y-2.5 border-t border-border pt-5">
         {strategy.highlights.map((highlight) => (
           <li
             key={highlight}
-            className="flex items-start gap-2 text-sm text-ink-muted"
+            className="flex items-start gap-2 text-[0.72rem] font-light leading-relaxed text-ink-muted"
           >
-            <Check className="mt-0.5 size-3.5 shrink-0 text-gain" />
+            <Check className="mt-0.5 size-3 shrink-0 text-gain" strokeWidth={1.5} />
             {highlight}
           </li>
         ))}
       </ul>
 
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-auto flex flex-wrap gap-1.5 pt-8">
         {strategy.tags.map((tag) => (
           <TechTag key={tag} label={tag} />
         ))}
       </div>
-    </div>
+    </article>
   );
 }
