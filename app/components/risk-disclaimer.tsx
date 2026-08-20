@@ -1,4 +1,4 @@
-import { TriangleAlert } from "lucide-react";
+import { FaTriangleExclamation } from "react-icons/fa6";
 
 export function RiskDisclaimer() {
   return (
@@ -6,9 +6,9 @@ export function RiskDisclaimer() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
         <div className="bg-warning-surface p-6 sm:p-8">
           <div className="grid gap-5 sm:grid-cols-[1.25rem_10rem_minmax(0,1fr)] sm:gap-4">
-            <TriangleAlert
+            <FaTriangleExclamation
               className="mt-0.5 size-4 text-warning"
-              strokeWidth={1.4}
+              aria-hidden="true"
             />
             <h2 className="text-[0.86rem] font-normal text-ink">
               Risk disclaimer

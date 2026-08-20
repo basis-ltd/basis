@@ -1,10 +1,10 @@
 import {
-  ArrowUpRight,
-  ChartNoAxesCombined,
-  Landmark,
-  Search,
-  Workflow,
-} from "lucide-react";
+  FaArrowUpRightFromSquare,
+  FaChartLine,
+  FaLandmark,
+  FaMagnifyingGlass,
+  FaNetworkWired,
+} from "react-icons/fa6";
 import { SiteHeader } from "@/app/components/site-header";
 import { Hero } from "@/app/components/hero";
 import { CategoryCard } from "@/app/components/category-card";
@@ -21,10 +21,10 @@ import {
 } from "@/app/data/strategies";
 
 const CATEGORY_ICONS = {
-  research: Search,
-  strategies: ChartNoAxesCombined,
-  execution: Landmark,
-  infrastructure: Workflow,
+  research: FaMagnifyingGlass,
+  strategies: FaChartLine,
+  execution: FaLandmark,
+  infrastructure: FaNetworkWired,
 } as const;
 
 export default function Home() {
@@ -84,9 +84,10 @@ export default function Home() {
                 href={DOCS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-link transition-colors hover:text-ink"
+                className="text-link inline-flex items-center gap-1 transition-colors hover:text-ink"
               >
-                Browse the deployed documentation ↗
+                Browse the deployed documentation
+                <FaArrowUpRightFromSquare className="size-2.5" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -122,7 +123,7 @@ export default function Home() {
                   </div>
                   <span className="text-link mt-5 inline-flex items-center gap-1 text-[0.55rem] font-light text-ink-subtle transition-colors group-hover:text-ink">
                     Read documentation
-                    <ArrowUpRight className="size-2.5" strokeWidth={1.5} />
+                    <FaArrowUpRightFromSquare className="size-2.5" aria-hidden="true" />
                   </span>
                 </a>
               ))}

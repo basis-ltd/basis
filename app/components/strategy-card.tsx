@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check } from "lucide-react";
+import { FaArrowUpRightFromSquare, FaCheck } from "react-icons/fa6";
 import type { Strategy } from "@/app/data/strategies";
 import { DOCS_URL } from "@/app/data/strategies";
 import { TechTag } from "@/app/components/tech-tag";
@@ -28,7 +28,7 @@ export function StrategyCard({
           className="text-link inline-flex shrink-0 items-center gap-1 !text-[12px] font-light text-ink-muted transition-colors hover:text-ink"
         >
           Docs
-          <ArrowUpRight className="size-2.5" strokeWidth={1.5} />
+          <FaArrowUpRightFromSquare className="size-2.5" aria-hidden="true" />
         </a>
       </div>
 
@@ -42,7 +42,7 @@ export function StrategyCard({
             key={highlight}
             className="flex items-start gap-2 text-[0.72rem] font-light leading-relaxed text-ink-muted"
           >
-            <Check className="mt-0.5 size-3 shrink-0 text-gain" strokeWidth={1.5} />
+            <FaCheck className="mt-0.5 size-3 shrink-0 text-gain" aria-hidden="true" />
             {highlight}
           </li>
         ))}

@@ -1,5 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { DOCS_URL } from "@/app/data/strategies";
 
 const NAV_LINKS = [
@@ -47,7 +46,7 @@ export function SiteHeader() {
         >
           <span className="sm:hidden">Docs</span>
           <span className="hidden sm:inline">Documentation</span>
-          <ArrowUpRight className="size-2.5" strokeWidth={1.5} />
+          <FaArrowUpRightFromSquare className="size-2.5" aria-hidden="true" />
         </a>
       </div>
     </header>

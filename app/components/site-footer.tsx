@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { DOCS_URL, REPO_URL } from "@/app/data/strategies";
 
 export function SiteFooter() {
@@ -29,7 +29,7 @@ export function SiteFooter() {
               className="text-link inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
             >
               GitHub
-              <ArrowUpRight className="size-3.5" />
+              <FaArrowUpRightFromSquare className="size-3.5" aria-hidden="true" />
             </a>
             <a
               href={DOCS_URL}
@@ -38,7 +38,7 @@ export function SiteFooter() {
               className="text-link inline-flex items-center gap-1.5 text-ink-muted transition-colors hover:text-ink"
             >
               Docs
-              <ArrowUpRight className="size-3.5" />
+              <FaArrowUpRightFromSquare className="size-3.5" aria-hidden="true" />
             </a>
           </div>
         </div>

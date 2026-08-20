@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { DOCS_URL } from "@/app/data/strategies";
 
 const LEDGER_ROWS = [
@@ -43,7 +43,7 @@ export function Hero() {
               className="inline-flex min-h-10 items-center justify-center gap-1.5 border border-border px-4 text-[0.72rem] font-normal text-ink transition-colors hover:border-ink"
             >
               Open documentation
-              <ArrowUpRight className="size-3.5" />
+              <FaArrowUpRightFromSquare className="size-3.5" aria-hidden="true" />
             </a>
           </div>
         </div>

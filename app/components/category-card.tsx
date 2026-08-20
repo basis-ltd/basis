@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
 
 export function CategoryCard({
   index,
@@ -8,7 +8,7 @@ export function CategoryCard({
   strategyNames,
 }: {
   index: number;
-  icon: LucideIcon;
+  icon: IconType;
   label: string;
   description: string;
   strategyNames: string[];
@@ -19,7 +19,7 @@ export function CategoryCard({
         <span className="text-[0.58rem] tracking-[0.08em] text-ink-subtle">
           0{index + 1}
         </span>
-        <Icon className="size-4.5 text-ink-muted" strokeWidth={1.25} />
+        <Icon className="size-4.5 text-ink-muted" aria-hidden="true" />
       </div>
       <h3 className="mt-auto pt-12 text-[1.08rem] font-normal tracking-[-0.025em] text-ink">
         {label}
